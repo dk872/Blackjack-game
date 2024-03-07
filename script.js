@@ -1,3 +1,5 @@
+'use strict';
+
 const app = function () {
   function init() {
     console.log('init ready');
