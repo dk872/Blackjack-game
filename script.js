@@ -38,6 +38,11 @@ const app = function () {
     game.status.classList.add('message');
     game.status.textContent = "Message for Player";
     game.dashboard.append(game.status);
+
+    game.btnDeal = document.createElement('button');
+    game.btnDeal.textContent = "DEAL";
+    game.btnDeal.classList.add('btn');
+    game.dashboard.append(game.btnDeal);
     
     game.table.append(game.dashboard);
     game.main.append(game.table);
