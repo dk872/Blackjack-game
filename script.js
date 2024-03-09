@@ -32,7 +32,10 @@ const app = function () {
     game.player.append(game.playerScore);
     game.table.append(game.player);
     game.player.append(game.playerCards);
-
+    
+    game.dashboard = document.createElement('div');
+    
+    game.table.append(game.dashboard);
     game.main.append(game.table);
   }
   return {
