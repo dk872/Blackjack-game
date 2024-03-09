@@ -11,6 +11,18 @@ const app = function () {
     game.scoreboard.textContent = "Dealer 0 vs Player 0";
     game.scoreboard.style.fontSize = "2em";
     game.main.append(game.scoreboard);
+
+    game.table = document.createElement('div');
+    game.dealer = document.createElement('div');
+    game.dealerCards = document.createElement('div');
+    game.dealerCards.textContent = "DEALER CARD";
+    game.dealerScore = document.createElement('div');
+    game.dealerScore.textContent = "-";
+    game.dealerScore.classList.add('score');
+    game.dealer.append(game.dealerScore);
+    game.table.append(game.dealer);
+    game.dealer.append(game.dealerCards);
+    
   }
   return {
     init: init
