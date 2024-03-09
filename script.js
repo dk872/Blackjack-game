@@ -48,6 +48,11 @@ const app = function () {
     game.btnHit.textContent = "HIT";
     game.btnHit.classList.add('btn');
     game.dashboard.append(game.btnHit);
+
+    game.btnStand = document.createElement('button');
+    game.btnStand.textContent = "STAND";
+    game.btnStand.classList.add('btn');
+    game.dashboard.append(game.btnStand);
     
     game.table.append(game.dashboard);
     game.main.append(game.table);
