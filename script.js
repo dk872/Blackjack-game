@@ -34,6 +34,10 @@ const app = function () {
     game.player.append(game.playerCards);
     
     game.dashboard = document.createElement('div');
+    game.status = document.createElement('div');
+    game.status.classList.add('message');
+    game.status.textContent = "Message for Player";
+    game.dashboard.append(game.status);
     
     game.table.append(game.dashboard);
     game.main.append(game.table);
