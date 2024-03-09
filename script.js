@@ -22,7 +22,17 @@ const app = function () {
     game.dealer.append(game.dealerScore);
     game.table.append(game.dealer);
     game.dealer.append(game.dealerCards);
-    
+
+    game.player = document.createElement('div');
+    game.playerCards = document.createElement('div');
+    game.playerCards.textContent = "PLAYER CARD";
+    game.playerScore = document.createElement('div');
+    game.playerScore.textContent = "-";
+    game.playerScore.classList.add('score');
+    game.player.append(game.playerScore);
+    game.table.append(game.player);
+    game.player.append(game.playerCards);
+
   }
   return {
     init: init
