@@ -33,6 +33,7 @@ const app = function () {
     game.table.append(game.player);
     game.player.append(game.playerCards);
 
+    game.main.append(game.table);
   }
   return {
     init: init
