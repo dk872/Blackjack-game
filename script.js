@@ -67,6 +67,11 @@ const app = function () {
     game.inputBet.value = 0;
     game.dashboard.append(game.inputBet);
 
+    game.betButton = document.createElement('button');
+    game.betButton.textContent = "Bet Amount";
+    game.betButton.classList.add('btn');
+    game.dashboard.append(game.betButton);
+    
     game.table.append(game.dashboard);
     game.main.append(game.table);
   }
