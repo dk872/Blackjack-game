@@ -43,6 +43,11 @@ const app = function () {
     game.btnDeal.textContent = "DEAL";
     game.btnDeal.classList.add('btn');
     game.dashboard.append(game.btnDeal);
+
+    game.btnHit = document.createElement('button');
+    game.btnHit.textContent = "HIT";
+    game.btnHit.classList.add('btn');
+    game.dashboard.append(game.btnHit);
     
     game.table.append(game.dashboard);
     game.main.append(game.table);
