@@ -58,7 +58,15 @@ const app = function () {
     game.playerCash.classList.add('message');
     game.playerCash.textContent = "Player Cash $100";
     game.dashboard.append(game.playerCash);
-    
+
+    game.inputBet = document.createElement('input');
+    game.inputBet.setAttribute('type','number');
+    game.inputBet.style.width = "4em";
+    game.inputBet.style.fontSize = "1.4em";
+    game.inputBet.style.marginTop = "1em";
+    game.inputBet.value = 0;
+    game.dashboard.append(game.inputBet);
+
     game.table.append(game.dashboard);
     game.main.append(game.table);
   }
