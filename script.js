@@ -53,6 +53,11 @@ const app = function () {
     game.btnStand.textContent = "STAND";
     game.btnStand.classList.add('btn');
     game.dashboard.append(game.btnStand);
+
+    game.playerCash = document.createElement('div');
+    game.playerCash.classList.add('message');
+    game.playerCash.textContent = "Player Cash $100";
+    game.dashboard.append(game.playerCash);
     
     game.table.append(game.dashboard);
     game.main.append(game.table);
