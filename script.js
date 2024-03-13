@@ -22,6 +22,7 @@ const app = function () {
         game.deck.push(card);
       }
     }
+    console.log(game.deck);
   }
 
   function buildGameBoard() {
