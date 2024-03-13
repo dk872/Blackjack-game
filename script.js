@@ -2,6 +2,7 @@
 
 const app = function () {
   const game = {};
+  const suits = ["spades", "hearts", "clubs", "diams"];
   
   function init() {
     console.log('init ready');
