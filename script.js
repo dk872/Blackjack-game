@@ -5,7 +5,7 @@ const app = function () {
   const suits = ["spades", "hearts", "clubs", "diams"];
   const ranks = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
   
-  function init() {
+  function buildGameBoard() {
     console.log('init ready');
     game.main = document.querySelector('#game');
     console.log(game);
