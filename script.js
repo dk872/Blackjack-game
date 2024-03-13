@@ -13,6 +13,7 @@ const app = function () {
     game.deck = [];
     for (let i = 0; i < suits.length; i++) {
       for (let j = 0; j < ranks.length; j++) {
+        let card = {};
       }
     }
   }
