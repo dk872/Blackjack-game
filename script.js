@@ -9,6 +9,8 @@ const app = function () {
     console.log('init ready');
   }
 
+  function buildDeck() {}
+
   function buildGameBoard() {
     console.log('init ready');
     game.main = document.querySelector('#game');
