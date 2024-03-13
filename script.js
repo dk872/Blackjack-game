@@ -9,7 +9,9 @@ const app = function () {
     console.log('init ready');
   }
 
-  function buildDeck() {}
+  function buildDeck() {
+    game.deck = [];
+  }
 
   function buildGameBoard() {
     console.log('init ready');
