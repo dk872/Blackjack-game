@@ -11,6 +11,10 @@ const app = function () {
 
   function buildDeck() {
     game.deck = [];
+    for (let i = 0; i < suits.length; i++) {
+      for (let j = 0; j < ranks.length; j++) {
+      }
+    }
   }
 
   function buildGameBoard() {
