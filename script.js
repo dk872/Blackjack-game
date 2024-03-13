@@ -14,6 +14,8 @@ const app = function () {
     for (let i = 0; i < suits.length; i++) {
       for (let j = 0; j < ranks.length; j++) {
         let card = {};
+        let tempValue = isNaN(ranks[j]) ? 10 : ranks[j];
+        tempValue = (ranks[j] == "A") ? 11 : tempValue;
       }
     }
   }
