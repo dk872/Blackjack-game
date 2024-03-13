@@ -16,6 +16,9 @@ const app = function () {
         let card = {};
         let tempValue = isNaN(ranks[j]) ? 10 : ranks[j];
         tempValue = (ranks[j] == "A") ? 11 : tempValue;
+        card.suit = suits[i];
+        card.rank = ranks[j];
+        card.value = tempValue;
       }
     }
   }
