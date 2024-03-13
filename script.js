@@ -19,6 +19,7 @@ const app = function () {
         card.suit = suits[i];
         card.rank = ranks[j];
         card.value = tempValue;
+        game.deck.push(card);
       }
     }
   }
