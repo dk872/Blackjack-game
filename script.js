@@ -7,6 +7,8 @@ const app = function () {
 
   function init() {
     console.log('init ready');
+    buildGameBoard();
+    buildDeck();
   }
 
   function buildDeck() {
