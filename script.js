@@ -22,6 +22,7 @@ const app = function () {
     game.dealerHand = [];
     game.playerHand = [];
     game.start = true;
+    turnOff(game.btnDeal);
   }
 
   function turnOff(btn) {
