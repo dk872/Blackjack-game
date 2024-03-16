@@ -9,6 +9,7 @@ const app = function () {
     console.log('init ready');
     buildGameBoard();
     buildDeck();
+    addClicker();
   }
 
   function addClicker() {
