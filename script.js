@@ -27,6 +27,9 @@ const app = function () {
     console.log(game.deck);
   }
 
+  function shuffle(cards) {
+  }
+
   function buildGameBoard() {
     console.log('init ready');
     game.main = document.querySelector('#game');
