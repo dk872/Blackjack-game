@@ -23,6 +23,8 @@ const app = function () {
     game.playerHand = [];
     game.start = true;
     turnOff(game.btnDeal);
+    game.playerCards.innerHTML = "DEAL";
+    game.dealerCards.innerHTML = "DEAL";
   }
 
   function turnOff(btn) {
