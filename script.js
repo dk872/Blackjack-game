@@ -11,6 +11,9 @@ const app = function () {
     buildDeck();
   }
 
+  function addClicker() {
+  }
+
   function buildDeck() {
     game.deck = [];
     for (let i = 0; i < suits.length; i++) {
