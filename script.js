@@ -24,6 +24,7 @@ const app = function () {
         game.deck.push(card);
       }
     }
+    shuffle(game.deck);
     console.log(game.deck);
   }
 
