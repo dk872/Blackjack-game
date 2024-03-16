@@ -31,6 +31,11 @@ const app = function () {
     btn.disabled = true;
     btn.style.backgroundColor = "#ddd";
   }
+
+  function turnOn(btn) {
+    btn.disabled = false;
+    btn.style.backgroundColor = "#000";
+  }
   
   function buildDeck() {
     game.deck = [];
