@@ -24,6 +24,11 @@ const app = function () {
     game.start = true;
   }
 
+  function turnOff(btn) {
+    btn.disabled = true;
+    btn.style.backgroundColor = "#ddd";
+  }
+  
   function buildDeck() {
     game.deck = [];
     for (let i = 0; i < suits.length; i++) {
