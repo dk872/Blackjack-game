@@ -8,6 +8,8 @@ const app = function () {
   function init() {
     console.log('init ready');
     buildGameBoard();
+    turnOff(game.btnHit);
+    turnOff(game.btnStand);
     buildDeck();
     addClicker();
   }
