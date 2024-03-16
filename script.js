@@ -12,6 +12,9 @@ const app = function () {
   }
 
   function addClicker() {
+    game.btnDeal.addEventListener('click', deal);
+    game.btnStand.addEventListener('click', playerStand);
+    game.btnHit.addEventListener('click', nextCard);
   }
 
   function buildDeck() {
