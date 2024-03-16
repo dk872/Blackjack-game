@@ -28,6 +28,10 @@ const app = function () {
   }
 
   function shuffle(cards) {
+    cards.sort(function () {
+      return .5 - Math.random();
+    })
+    return cards;
   }
 
   function buildGameBoard() {
