@@ -19,6 +19,8 @@ const app = function () {
   } 
   
   function deal() {
+    game.dealerHand = [];
+    game.playerHand = [];
   }
 
   function buildDeck() {
