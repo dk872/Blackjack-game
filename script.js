@@ -31,6 +31,9 @@ const app = function () {
 
   function takeCard(hand, ele, h) {
     let temp = game.deck.shift();
+    console.log(temp);
+    hand.push(temp);
+    console.log(game);
   }
   
   function turnOff(btn) {
