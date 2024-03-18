@@ -43,6 +43,9 @@ const app = function () {
       let div = document.createElement("div");
       div.classList.add('card');
     }
+    if (card.suit === "hearts" || card.suit === "diams") {
+        div.classList.add('red');
+    }
   }
   
   function turnOff(btn) {
