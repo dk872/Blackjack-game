@@ -36,6 +36,9 @@ const app = function () {
     hand.push(temp);
     console.log(game);
   }
+
+  function showCard(card, el) {
+  }
   
   function turnOff(btn) {
     btn.disabled = true;
