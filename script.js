@@ -35,6 +35,7 @@ const app = function () {
     console.log(temp);
     hand.push(temp);
     console.log(game);
+    showCard(temp, ele);
   }
 
   function showCard(card, el) {
