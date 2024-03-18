@@ -42,23 +42,23 @@ const app = function () {
       el.style.backgroundColor = "white";
       let div = document.createElement("div");
       div.classList.add('card');
-    }
-    if (card.suit === "hearts" || card.suit === "diams") {
+      if (card.suit === "hearts" || card.suit === "diams") {
         div.classList.add('red');
+      }
+      let span1 = document.createElement('div');
+      span1.innerHTML = card.rank + "&" + card.suit + ";";
+      span1.classList.add('tiny');
+      div.appendChild(span1);
+      let span2 = document.createElement('div');
+      span2.innerHTML = card.rank;
+      span2.classList.add('big');
+      div.appendChild(span2);
+      let span3 = document.createElement('div');
+      span3.innerHTML = "&" + card.suit + ";";
+      span3.classList.add('big');
+      div.appendChild(span3);
+      el.appendChild(div);
     }
-    let span1 = document.createElement('div');
-    span1.innerHTML = card.rank + "&" + card.suit + ";";
-    span1.classList.add('tiny');
-    div.appendChild(span1);
-    let span2 = document.createElement('div');
-    span2.innerHTML = card.rank;
-    span2.classList.add('big');
-    div.appendChild(span2);
-    let span3 = document.createElement('div');
-    span3.innerHTML = "&" + card.suit + ";";
-    span3.classList.add('big');
-    div.appendChild(span3);
-    el.appendChild(div);
   }
   
   function turnOff(btn) {
