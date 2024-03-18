@@ -58,6 +58,7 @@ const app = function () {
     span3.innerHTML = "&" + card.suit + ";";
     span3.classList.add('big');
     div.appendChild(span3);
+    el.appendChild(div);
   }
   
   function turnOff(btn) {
