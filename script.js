@@ -38,6 +38,11 @@ const app = function () {
   }
 
   function showCard(card, el) {
+    if (card != undefined) {
+      el.style.backgroundColor = "white";
+      let div = document.createElement("div");
+      div.classList.add('card');
+    }
   }
   
   function turnOff(btn) {
