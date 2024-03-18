@@ -29,6 +29,9 @@ const app = function () {
     game.dealerCards.innerHTML = "DEAL";
   }
 
+  function takeCard(hand, ele, h) {
+  }
+  
   function turnOff(btn) {
     btn.disabled = true;
     btn.style.backgroundColor = "#ddd";
