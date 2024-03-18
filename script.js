@@ -25,6 +25,7 @@ const app = function () {
     game.playerHand = [];
     game.start = true;
     turnOff(game.btnDeal);
+    takeCard(game.dealerHand, game.dealerCards, false);
     game.playerCards.innerHTML = "DEAL";
     game.dealerCards.innerHTML = "DEAL";
   }
