@@ -33,7 +33,10 @@ const app = function () {
     takeCard(game.playerHand, game.playerCards, false);
   }
 
-  function updateCount(){
+  function updateCount() {
+    let player = scorer(game.playerHand);
+    let dealer = scorer(game.dealerHand);
+    console.log(player,dealer);
   }
 
   function takeCard(hand, ele, h) {
