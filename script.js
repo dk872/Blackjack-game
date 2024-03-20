@@ -31,7 +31,7 @@ const app = function () {
     takeCard(game.dealerHand, game.dealerCards, false);
     takeCard(game.playerHand, game.playerCards, false);
     takeCard(game.playerHand, game.playerCards, false);
-    
+    updateCount();
   }
 
   function updateCount() {
