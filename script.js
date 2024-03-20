@@ -34,6 +34,9 @@ const app = function () {
   }
 
   function takeCard(hand, ele, h) {
+    if (game.deck.length == 0) {
+      buildDeck();
+    }
     let temp = game.deck.shift();
     console.log(temp);
     hand.push(temp);
