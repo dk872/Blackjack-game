@@ -49,6 +49,10 @@ const app = function () {
   function scorer(hand) {
     let total = 0;
     let ace = 0;
+    hand.forEach(function(card){
+      console.log(card);
+      total = total + Number(card.value);
+    })
   }
 
   function takeCard(hand, ele, h) {
