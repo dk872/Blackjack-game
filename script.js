@@ -33,6 +33,9 @@ const app = function () {
     takeCard(game.playerHand, game.playerCards, false);
   }
 
+  function updateCount(){
+  }
+
   function takeCard(hand, ele, h) {
     if (game.deck.length == 0) {
       buildDeck();
