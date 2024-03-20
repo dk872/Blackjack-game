@@ -37,6 +37,7 @@ const app = function () {
     let player = scorer(game.playerHand);
     let dealer = scorer(game.dealerHand);
     console.log(player,dealer);
+    game.playerScore.textContent = player;
   }
 
   function takeCard(hand, ele, h) {
