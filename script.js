@@ -42,6 +42,11 @@ const app = function () {
     hand.push(temp);
     console.log(game);
     showCard(temp, ele);
+    if (h) {
+      game.cardBack = document.createElement('div');
+      game.cardBack.classList.add('cardB');
+      ele.append(game.cardBack);
+    }
   }
 
   function showCard(card, el) {
