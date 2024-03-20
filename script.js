@@ -46,6 +46,9 @@ const app = function () {
     }
   }
 
+  function scorer(hand){
+  }
+
   function takeCard(hand, ele, h) {
     if (game.deck.length == 0) {
       buildDeck();
