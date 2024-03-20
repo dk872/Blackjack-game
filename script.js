@@ -53,6 +53,8 @@ const app = function () {
       console.log(card);
       total = total + Number(card.value);
     })
+    console.log(hand);
+    return Number(total);
   }
 
   function takeCard(hand, ele, h) {
