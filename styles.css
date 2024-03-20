@@ -28,3 +28,15 @@
     vertical-align: top;
     text-align: left;
   }
+  .card {
+    display: inline-block;
+    margin: auto;
+    padding: 20px;
+    height: 120px;
+    width: 90px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 10px #333;
+    margin: 5px;
+  }
