@@ -38,6 +38,11 @@ const app = function () {
     let dealer = scorer(game.dealerHand);
     console.log(player,dealer);
     game.playerScore.textContent = player;
+    if (player < 21){
+      turnOn(game.btnHit);
+      turnOn(game.btnStand);
+      game.status.textContent = "Stand or take another card";
+    }
   }
 
   function takeCard(hand, ele, h) {
