@@ -46,7 +46,9 @@ const app = function () {
     }
   }
 
-  function scorer(hand){
+  function scorer(hand) {
+    let total = 0;
+    let ace = 0;
   }
 
   function takeCard(hand, ele, h) {
