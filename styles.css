@@ -18,3 +18,13 @@
   .red {
     color: red;
   }
+  .big {
+    font-size: 3em;
+    text-align: center;
+  }
+  
+  .tiny {
+    font-size: 1.2em;
+    vertical-align: top;
+    text-align: left;
+  }
