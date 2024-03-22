@@ -55,6 +55,9 @@ const app = function () {
     let ace = 0;
     hand.forEach(function(card){
       console.log(card);
+      if (card.rank == "A") {
+        ace++;
+      }
       total = total + Number(card.value);
     })
     console.log(hand);
