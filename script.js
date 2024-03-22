@@ -35,6 +35,12 @@ const app = function () {
     updateCount();
   }
 
+  function findWinner() {
+  }
+
+  function dealerPlay() {
+  }
+
   function updateCount() {
     let player = scorer(game.playerHand);
     let dealer = scorer(game.dealerHand);
