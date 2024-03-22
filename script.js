@@ -54,6 +54,10 @@ const app = function () {
     else if (player > 21) {
       findWinner();
     }
+    else {
+      game.status.textContent = "Dealer in PLay to 17 minimum";
+      dealerPlay(dealer);
+    }
   }
 
   function scoreAce(val, aces) {
