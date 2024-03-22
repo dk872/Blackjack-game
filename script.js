@@ -59,7 +59,10 @@ const app = function () {
         ace++;
       }
       total = total + Number(card.value);
-    })
+    });
+    if (ace > 0 && total > 21) {
+      total = scoreAce(total, ace);
+    }
     console.log(hand);
     return Number(total);
   }
