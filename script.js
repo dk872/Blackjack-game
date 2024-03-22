@@ -48,6 +48,17 @@ const app = function () {
   }
 
   function scoreAce(val, aces) {
+    if (val < 21) {
+      return val;
+    }
+    else if (aces > 0) {
+      aces--;
+      val = val - 10;
+      return scoreAce(val, aces);
+    }
+    else {
+      return val;
+    }
   }
 
   function scorer(hand) {
