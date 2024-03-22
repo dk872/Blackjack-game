@@ -51,6 +51,9 @@ const app = function () {
       turnOn(game.btnStand);
       game.status.textContent = "Stand or take another card";
     }
+    else if (player > 21) {
+      findWinner();
+    }
   }
 
   function scoreAce(val, aces) {
