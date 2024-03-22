@@ -47,6 +47,9 @@ const app = function () {
     }
   }
 
+  function scoreAce(val, aces) {
+  }
+
   function scorer(hand) {
     let total = 0;
     let ace = 0;
