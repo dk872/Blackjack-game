@@ -3,8 +3,7 @@
 const app = function () {
   const game = {};
   const suits = ["spades", "hearts", "clubs", "diams"];
-  //const ranks = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
-  const ranks = ["A", "A", "A", "A", "A", "K"];
+  const ranks = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
 
   function init() {
     console.log('init ready');
