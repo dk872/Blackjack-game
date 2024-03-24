@@ -40,7 +40,10 @@ const app = function () {
     updateCount();
   }
 
-  function nextCard() {
+  function playerStand() {
+    dealerPlay();
+    turnOff(game.btnHit);
+    turnOff(game.btnStand);
   }
 
   function findWinner() {
