@@ -49,6 +49,7 @@ const app = function () {
   }
 
   function dealerPlay() {
+    let dealer = scorer(game.dealerHand);
   }
 
   function updateCount() {
