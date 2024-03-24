@@ -38,6 +38,9 @@ const app = function () {
   function playerStand() {
   }
 
+  function nextCard() {
+  }
+
   function findWinner() {
   }
 
