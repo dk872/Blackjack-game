@@ -35,6 +35,9 @@ const app = function () {
     updateCount();
   }
 
+  function playerStand() {
+  }
+
   function findWinner() {
   }
 
