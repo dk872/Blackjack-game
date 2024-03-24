@@ -35,7 +35,9 @@ const app = function () {
     updateCount();
   }
 
-  function playerStand() {
+  function nextCard() {
+    takeCard(game.playerHand, game.playerCards, false);
+    updateCount();
   }
 
   function nextCard() {
