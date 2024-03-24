@@ -53,6 +53,9 @@ const app = function () {
     game.cardBack.style.display = "none";
     console.log(dealer);
     game.status.textContent = "Dealer score " + dealer + " ";
+    if (dealer >= 17) {
+      game.dealerScore.textContent = dealer;
+    }
   }
 
   function updateCount() {
