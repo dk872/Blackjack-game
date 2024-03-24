@@ -50,6 +50,8 @@ const app = function () {
 
   function dealerPlay() {
     let dealer = scorer(game.dealerHand);
+    game.cardBack.style.display = "none";
+    console.log(dealer);
   }
 
   function updateCount() {
