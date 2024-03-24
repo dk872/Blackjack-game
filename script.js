@@ -56,6 +56,11 @@ const app = function () {
     if (dealer >= 17) {
       game.dealerScore.textContent = dealer;
     }
+    else {
+      takeCard(game.dealerHand, game.dealerCards, false);
+      game.dealerScore.textContent = dealer;
+      dealerPlay();
+    }
   }
 
   function updateCount() {
