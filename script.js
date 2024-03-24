@@ -52,6 +52,7 @@ const app = function () {
     let dealer = scorer(game.dealerHand);
     game.cardBack.style.display = "none";
     console.log(dealer);
+    game.status.textContent = "Dealer score " + dealer + " ";
   }
 
   function updateCount() {
