@@ -46,6 +46,8 @@ const app = function () {
   }
 
   function findWinner() {
+    let player = scorer(game.playerHand);
+    let dealer = scorer(game.dealerHand);
   }
 
   function dealerPlay() {
