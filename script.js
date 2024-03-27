@@ -58,6 +58,9 @@ const app = function () {
     if (player == dealer) {
       game.status.textContent = "Draw no winners " + player + " ";
     }
+    else if ((player < 22 && player > dealer) || dealer > 21) {
+      game.status.textContent += "You Win with " + player + " ";
+    }
   }
 
   function dealerPlay() {
