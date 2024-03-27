@@ -49,6 +49,12 @@ const app = function () {
     let player = scorer(game.playerHand);
     let dealer = scorer(game.dealerHand);
     console.log(player, dealer);
+    if (player > 21) {
+      game.status.textContent = "You Busted with " + player + " ";
+    }
+    if (dealer > 21) {
+      game.status.textContent = "Dealer Busted with " + dealer + " ";
+    }
   }
 
   function dealerPlay() {
