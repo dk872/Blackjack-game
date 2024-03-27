@@ -61,6 +61,9 @@ const app = function () {
     else if ((player < 22 && player > dealer) || dealer > 21) {
       game.status.textContent += "You Win with " + player + " ";
     }
+    else {
+      game.status.textContent += "Dealer wins with " + dealer + " ";
+    }
   }
 
   function dealerPlay() {
