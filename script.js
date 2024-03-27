@@ -55,6 +55,7 @@ const app = function () {
     game.status.textContent = "Dealer score " + dealer + " ";
     if (dealer >= 17) {
       game.dealerScore.textContent = dealer;
+      findWinner();
     }
     else {
       takeCard(game.dealerHand, game.dealerCards, false);
