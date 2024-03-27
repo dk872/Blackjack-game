@@ -55,6 +55,9 @@ const app = function () {
     if (dealer > 21) {
       game.status.textContent = "Dealer Busted with " + dealer + " ";
     }
+    if (player == dealer) {
+      game.status.textContent = "Draw no winners " + player + " ";
+    }
   }
 
   function dealerPlay() {
