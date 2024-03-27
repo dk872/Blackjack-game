@@ -64,6 +64,7 @@ const app = function () {
     else {
       game.status.textContent += "Dealer wins with " + dealer + " ";
     }
+    turnOn(game.btnDeal);
   }
 
   function dealerPlay() {
