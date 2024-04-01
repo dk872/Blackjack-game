@@ -13,6 +13,7 @@ const app = function () {
     turnOff(game.btnStand);
     buildDeck();
     addClicker();
+    scoreBoard();
   }
 
   function scoreBoard() {
