@@ -30,9 +30,9 @@ const app = function () {
     game.playerHand = [];
     game.start = true;
     turnOff(game.btnDeal);
-    game.playerCards.innerHTML = "DEAL";
-    game.dealerCards.innerHTML = "DEAL";
-    takeCard(game.dealerHand, game.dealerCards, false);
+    game.playerCards.innerHTML = "";
+    game.dealerCards.innerHTML = "";
+    takeCard(game.dealerHand, game.dealerCards, true);
     takeCard(game.dealerHand, game.dealerCards, false);
     takeCard(game.playerHand, game.playerCards, false);
     takeCard(game.playerHand, game.playerCards, false);
