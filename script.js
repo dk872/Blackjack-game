@@ -16,6 +16,7 @@ const app = function () {
   }
 
   function scoreBoard() {
+    game.scoreboard.textContent = `Dealer ${score[0]} vs Player ${score[1]}`;
   }
 
   function addClicker() {
