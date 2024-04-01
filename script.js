@@ -15,6 +15,9 @@ const app = function () {
     addClicker();
   }
 
+  function scoreBoard() {
+  }
+
   function addClicker() {
     game.btnDeal.addEventListener('click', deal);
     game.btnStand.addEventListener('click', playerStand);
