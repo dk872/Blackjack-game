@@ -66,9 +66,11 @@ const app = function () {
     }
     else if ((player < 22 && player > dealer) || dealer > 21) {
       game.status.textContent += "You Win with " + player + " ";
+      score[1]++;
     }
     else {
       game.status.textContent += "Dealer wins with " + dealer + " ";
+      score[0]++;
     }
     turnOn(game.btnDeal);
   }
