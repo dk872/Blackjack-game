@@ -24,6 +24,8 @@ const app = function () {
     if (game.inputBet.value > game.cash) {
       game.inputBet.value = game.cash;
     }
+    game.bet = Number(game.inputBet.value);
+    game.playerCash.textContent = "Player Cash $" + (game.cash - game.bet);
   }
 
   function lockWager(tog) {
