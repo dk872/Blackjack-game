@@ -15,8 +15,12 @@ const app = function () {
     addClicker();
     scoreBoard();
   }
-
+  
   function updateCash() {
+    console.log(isNaN(game.inputBet.value));
+    if (isNaN(game.inputBet.value) || game.inputBet.value.length < 1) {
+      game.inputBet.value = 0;
+    }
   }
 
   function lockWager(tog) {
