@@ -16,6 +16,7 @@ const app = function () {
     buildDeck();
     addClicker();
     scoreBoard();
+    updateCash();
   }
   
   function updateCash() {
