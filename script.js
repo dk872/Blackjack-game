@@ -16,6 +16,15 @@ const app = function () {
     scoreBoard();
   }
 
+  function updateCash() {
+  }
+
+  function lockWager(tog) {
+  }
+
+  function setBet() {
+  }
+
   function scoreBoard() {
     game.scoreboard.textContent = `Dealer ${score[0]} vs Player ${score[1]}`;
   }
