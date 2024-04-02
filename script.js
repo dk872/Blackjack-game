@@ -51,6 +51,8 @@ const app = function () {
     game.btnDeal.addEventListener('click', deal);
     game.btnStand.addEventListener('click', playerStand);
     game.btnHit.addEventListener('click', nextCard);
+    game.betButton.addEventListener('click', setBet);
+    game.inputBet.addEventListener('change', updateCash);
   } 
   
   function deal() {
