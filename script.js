@@ -8,6 +8,8 @@ const app = function () {
 
   function init() {
     console.log('init ready');
+    game.cash = 100;
+    game.bet = 0;
     buildGameBoard();
     turnOff(game.btnHit);
     turnOff(game.btnStand);
