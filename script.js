@@ -29,6 +29,8 @@ const app = function () {
   }
 
   function lockWager(tog) {
+    game.inputBet.disabled = tog;
+    game.betButton.disabled = tog;
   }
 
   function setBet() {
