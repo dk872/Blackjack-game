@@ -37,6 +37,7 @@ const app = function () {
     game.status.textContent = "You bet $" + game.bet;
     game.cash = game.cash - game.bet;
     game.playerCash.textContent = "Player Cash $" + game.cash;
+    lockWager(true);
   }
 
   function scoreBoard() {
