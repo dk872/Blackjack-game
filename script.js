@@ -21,6 +21,9 @@ const app = function () {
     if (isNaN(game.inputBet.value) || game.inputBet.value.length < 1) {
       game.inputBet.value = 0;
     }
+    if (game.inputBet.value > game.cash) {
+      game.inputBet.value = game.cash;
+    }
   }
 
   function lockWager(tog) {
