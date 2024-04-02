@@ -34,6 +34,9 @@ const app = function () {
   }
 
   function setBet() {
+    game.status.textContent = "You bet $" + game.bet;
+    game.cash = game.cash - game.bet;
+    game.playerCash.textContent = "Player Cash $" + game.cash;
   }
 
   function scoreBoard() {
