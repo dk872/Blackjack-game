@@ -67,6 +67,7 @@ const app = function () {
     game.dealerHand = [];
     game.playerHand = [];
     game.start = true;
+    lockWager(true);
     turnOff(game.btnDeal);
     game.playerCards.innerHTML = "";
     game.dealerCards.innerHTML = "";
