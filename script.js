@@ -34,6 +34,14 @@ const app = function () {
   function lockWager(tog) {
     game.inputBet.disabled = tog;
     game.betButton.disabled = tog;
+    if (tog) {
+      game.betButton.style.backgroundColor = "#ddd";
+      game.inputBet.style.backgroundColor = "#ddd";
+    }
+    else {
+      game.betButton.style.backgroundColor = "#000";
+      game.inputBet.style.backgroundColor = "#fff";
+    }
   }
 
   function setBet() {
