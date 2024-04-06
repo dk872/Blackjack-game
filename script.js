@@ -110,6 +110,10 @@ const app = function () {
       game.status.textContent += "Dealer wins with " + dealer + " ";
       score[0]++;
     }
+    if (game.cash < 1) {
+      game.cash = 0;
+      game.bet = 0;
+    }
     scoreBoard();
     turnOff(game.btnHit);
     turnOff(game.btnStand);
