@@ -188,6 +188,10 @@ const app = function () {
     if (ace > 0 && total > 21) {
       total = scoreAce(total, ace);
     }
+    if (total > 21) {
+      gameEnd();
+      return Number(total);
+    }
     console.log(hand);
     return Number(total);
   }
