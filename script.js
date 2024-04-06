@@ -115,6 +115,7 @@ const app = function () {
       game.bet = 0;
     }
     scoreBoard();
+    lockWager(false);
     turnOff(game.btnHit);
     turnOff(game.btnStand);
     turnOn(game.btnDeal);
