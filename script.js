@@ -154,6 +154,11 @@ const app = function () {
       game.status.textContent = "Dealer in PLay to 17 minimum";
       dealerPlay(dealer);
     }
+    if (dealer == 21 && game.dealerHand.length == 2) {
+      game.status.textContent = "Dealer Got BlackJack";
+      gameEnd();
+      findWinner();
+    }
   }
 
   function scoreAce(val, aces) {
