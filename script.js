@@ -7,7 +7,6 @@ const app = function () {
   const score = [0, 0];
 
   function init() {
-    console.log('init ready');
     game.cash = 100;
     game.bet = 0;
     buildGameBoard();
@@ -125,7 +124,6 @@ const app = function () {
   function dealerPlay() {
     let dealer = scorer(game.dealerHand);
     game.cardBack.style.display = "none";
-    console.log(dealer);
     game.status.textContent = "Dealer score " + dealer + " ";
     if (dealer >= 17) {
       game.dealerScore.textContent = dealer;
@@ -141,7 +139,6 @@ const app = function () {
   function updateCount() {
     let player = scorer(game.playerHand);
     let dealer = scorer(game.dealerHand);
-    console.log(player,dealer);
     game.playerScore.textContent = player;
     if (player < 21){
       turnOn(game.btnHit);
@@ -180,7 +177,6 @@ const app = function () {
     let total = 0;
     let ace = 0;
     hand.forEach(function(card){
-      console.log(card);
       if (card.rank == "A") {
         ace++;
       }
@@ -193,7 +189,6 @@ const app = function () {
       gameEnd();
       return Number(total);
     }
-    console.log(hand);
     return Number(total);
   }
 
@@ -209,9 +204,7 @@ const app = function () {
       buildDeck();
     }
     let temp = game.deck.shift();
-    console.log(temp);
     hand.push(temp);
-    console.log(game);
     showCard(temp, ele);
     if (h) {
       game.cardBack = document.createElement('div');
@@ -268,7 +261,6 @@ const app = function () {
       }
     }
     shuffle(game.deck);
-    console.log(game.deck);
   }
 
   function shuffle(cards) {
@@ -279,9 +271,7 @@ const app = function () {
   }
 
   function buildGameBoard() {
-    console.log('init ready');
     game.main = document.querySelector('#game');
-    console.log(game);
     game.scoreboard = document.createElement('div');
     game.scoreboard.textContent = "Dealer 0 vs Player 0";
     game.scoreboard.style.fontSize = "2em";
