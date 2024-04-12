@@ -115,6 +115,7 @@ const app = function () {
       game.bet = 0;
     }
     scoreBoard();
+    game.playerCash.textContent = "Player Cash $" + game.cash;
     lockWager(false);
     turnOff(game.btnHit);
     turnOff(game.btnStand);
