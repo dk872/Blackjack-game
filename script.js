@@ -198,6 +198,7 @@ const app = function () {
   }
 
   function gameEnd() {
+    game.cardBack.style.display = "none";
     turnOff(game.btnHit);
     turnOff(game.btnStand);
     console.log('ended');
