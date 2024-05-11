@@ -249,10 +249,10 @@ const app = function () {
     button.style.backgroundColor = "#ddd";
   };
 
-  function turnOn(btn) {
-    btn.disabled = false;
-    btn.style.backgroundColor = "#000";
-  }
+  const turnOn = (button) => {
+    button.disabled = false;
+    button.style.backgroundColor = "#000";
+  };
   
   function buildDeck() {
     game.deck = [];
