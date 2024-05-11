@@ -173,6 +173,24 @@ const app = function () {
     }
   }
 
+  const countTotal = (hand) => {
+    let total = 0;
+    for (const card of hand) {
+      total += Number(card.value);
+    }
+    return total;
+  };
+  
+  const countAces = (hand) => {
+    let aceCount = 0;
+    for (const card of hand) {
+      if (card.rank === "A") {
+        aceCount++;
+      }
+    }
+    return aceCount;
+  };
+
   const adjustScoreForAces = (totalScore, numberOfAces) => {
     for (let i = 0; i < numberOfAces && totalScore > 21; i++) {
       totalScore -= 10;
@@ -180,24 +198,18 @@ const app = function () {
     return totalScore;
   };
 
-  function scorer(hand) {
-    let total = 0;
-    let ace = 0;
-    hand.forEach(function(card){
-      if (card.rank == "A") {
-        ace++;
-      }
-      total = total + Number(card.value);
-    });
-    if (ace > 0 && total > 21) {
-      total = scoreAce(total, ace);
-    }
+  const scorer = (hand) => {
+    let total = countTotal(hand);
+    let aceCount = countAces(hand);
+  
+    total = adjustScoreForAces(total, aceCount);
+  
     if (total > 21) {
       gameEnd();
-      return Number(total);
     }
-    return Number(total);
-  }
+  
+    return total;
+  };
 
   const gameEnd = () => {
     game.cardBack.style.display = "none";
