@@ -56,9 +56,11 @@ const app = function () {
     lockWager(true);
   };
 
-  function scoreBoard() {
-    game.scoreboard.textContent = `Dealer ${score[0]} vs Player ${score[1]}`;
-  }
+  const scoreBoard = () => {
+    const dealerScore = score[0];
+    const playerScore = score[1];
+    game.scoreboard.textContent = `Dealer ${dealerScore} vs Player ${playerScore}`;
+  };
 
   function addClicker() {
     game.btnDeal.addEventListener('click', deal);
