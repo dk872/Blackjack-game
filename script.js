@@ -48,12 +48,13 @@ const app = function () {
     game.betButton.style.backgroundColor = buttonBackgroundColor;
   };
 
-  function setBet() {
-    game.status.textContent = "You bet $" + game.bet;
-    game.cash = game.cash - game.bet;
-    game.playerCash.textContent = "Player Cash $" + game.cash;
+  const setBet = () => {
+    const betAmount = game.bet;
+    game.status.textContent = `You bet $${betAmount}`;
+    game.cash -= betAmount;
+    game.playerCash.textContent = `Player Cash $${game.cash}`;
     lockWager(true);
-  }
+  };
 
   function scoreBoard() {
     game.scoreboard.textContent = `Dealer ${score[0]} vs Player ${score[1]}`;
