@@ -173,19 +173,13 @@ const app = function () {
     }
   }
 
-  function scoreAce(val, aces) {
-    if (val < 21) {
-      return val;
+  const adjustScoreForAces = (totalScore, numberOfAces) => {
+    while (totalScore > 21 && numberOfAces > 0) {
+      totalScore -= 10;
+      numberOfAces--;
     }
-    else if (aces > 0) {
-      aces--;
-      val = val - 10;
-      return scoreAce(val, aces);
-    }
-    else {
-      return val;
-    }
-  }
+    return totalScore;
+  };
 
   function scorer(hand) {
     let total = 0;
