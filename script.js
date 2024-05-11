@@ -135,20 +135,20 @@ const app = function () {
     turnOn(game.btnDeal);
   }
 
-  function dealerPlay() {
-    let dealer = scorer(game.dealerHand);
+  const dealerPlay = () => {
+    const dealerScore = scorer(game.dealerHand);
     game.cardBack.style.display = "none";
-    game.status.textContent = "Dealer score " + dealer + " ";
-    if (dealer >= 17) {
-      game.dealerScore.textContent = dealer;
-      findWinner();
+    game.status.textContent = `Dealer score ${dealerScore} `;
+    
+    if (dealerScore >= 17) {
+        game.dealerScore.textContent = dealerScore;
+        findWinner();
+    } else {
+        takeCard(game.dealerHand, game.dealerCards, false);
+        game.dealerScore.textContent = dealerScore;
+        dealerPlay();
     }
-    else {
-      takeCard(game.dealerHand, game.dealerCards, false);
-      game.dealerScore.textContent = dealer;
-      dealerPlay();
-    }
-  }
+  };
 
   function updateCount() {
     let player = scorer(game.playerHand);
