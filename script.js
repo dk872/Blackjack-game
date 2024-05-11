@@ -96,11 +96,11 @@ const app = function () {
     updateCount();
   };
 
-  function playerStand() {
+  const playerStand = () => {
     dealerPlay();
     turnOff(game.btnHit);
     turnOff(game.btnStand);
-  }
+  };
 
   function findWinner() {
     let player = scorer(game.playerHand);
