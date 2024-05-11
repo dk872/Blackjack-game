@@ -150,28 +150,42 @@ const app = function () {
     }
   };
 
-  function updateCount() {
-    let player = scorer(game.playerHand);
-    let dealer = scorer(game.dealerHand);
-    game.playerScore.textContent = player;
-    if (player < 21){
-      turnOn(game.btnHit);
-      turnOn(game.btnStand);
-      game.status.textContent = "Stand or take another card";
+  const updateCount = () => {
+    const playerScore = scorer(game.playerHand);
+    const dealerScore = scorer(game.dealerHand);
+    game.playerScore.textContent = playerScore;
+
+    if (playerScore < 21) {
+        handlePlayerScoreBelow21();
+    } else if (playerScore > 21) {
+        handlePlayerScoreAbove21();
+    } else {
+        handlePlayerScoreEqual21(dealerScore);
     }
-    else if (player > 21) {
-      findWinner();
-    }
-    else {
-      game.status.textContent = "Dealer in PLay to 17 minimum";
-      dealerPlay(dealer);
-    }
-    if (dealer == 21 && game.dealerHand.length == 2) {
+
+    handleDealerBlackjack(dealerScore);
+  };
+
+  const handlePlayerScoreBelow21 = () => {
+    turnOn(game.btnHit);
+    turnOn(game.btnStand);
+    game.status.textContent = "Stand or take another card";
+  };
+
+  const handlePlayerScoreAbove21 = () => findWinner();
+
+  const handlePlayerScoreEqual21 = (dealerScore) => {
+    game.status.textContent = "Dealer in PLay to 17 minimum";
+    dealerPlay(dealerScore);
+  };
+
+  const handleDealerBlackjack = (dealerScore) => {
+    if (dealerScore === 21 && game.dealerHand.length === 2) {
       game.status.textContent = "Dealer Got BlackJack";
       gameEnd();
       findWinner();
     }
-  }
+  };
 
   const countTotal = (hand) => {
     let total = 0;
