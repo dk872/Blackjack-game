@@ -36,18 +36,17 @@ const app = function () {
     game.playerCash.textContent = `Player Cash $${game.cash - game.bet}`;
   };
 
-  function lockWager(tog) {
-    game.inputBet.disabled = tog;
-    game.betButton.disabled = tog;
-    if (tog) {
-      game.betButton.style.backgroundColor = "#ddd";
-      game.inputBet.style.backgroundColor = "#ddd";
-    }
-    else {
-      game.betButton.style.backgroundColor = "#000";
-      game.inputBet.style.backgroundColor = "#fff";
-    }
-  }
+  const lockWager = (toggle) => {
+    const disabledColor = "#ddd";
+    const enabledColor = "#000";
+    const inputBackgroundColor = toggle ? disabledColor : "#fff";
+    const buttonBackgroundColor = toggle ? disabledColor : enabledColor;
+  
+    game.inputBet.disabled = toggle;
+    game.betButton.disabled = toggle;
+    game.inputBet.style.backgroundColor = inputBackgroundColor;
+    game.betButton.style.backgroundColor = buttonBackgroundColor;
+  };
 
   function setBet() {
     game.status.textContent = "You bet $" + game.bet;
