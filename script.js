@@ -275,76 +275,83 @@ const app = function () {
 
   const shuffleCards = (cards) => cards.sort(() => Math.random() - 0.5);
 
-  function buildGameBoard() {
+  const buildGameBoard = () => {
     game.main = document.querySelector('#game');
+    
+    // Scoreboard
     game.scoreboard = document.createElement('div');
     game.scoreboard.textContent = "Dealer 0 vs Player 0";
-    game.scoreboard.style.fontSize = "2em";
+    game.scoreboard.classList.add('score');
     game.main.append(game.scoreboard);
-
+    
+    // Table setup
     game.table = document.createElement('div');
+    game.table.classList.add('table');
+    
+    // Dealer section
     game.dealer = document.createElement('div');
+    game.dealer.classList.add('dealer');
+    
     game.dealerCards = document.createElement('div');
     game.dealerCards.textContent = "DEALER CARD";
+    
     game.dealerScore = document.createElement('div');
     game.dealerScore.textContent = "-";
     game.dealerScore.classList.add('score');
-    game.dealer.append(game.dealerScore);
+    
+    game.dealer.append(game.dealerScore, game.dealerCards);
     game.table.append(game.dealer);
-    game.dealer.append(game.dealerCards);
-
+    
+    // Player section
     game.player = document.createElement('div');
+    game.player.classList.add('player');
+    
     game.playerCards = document.createElement('div');
     game.playerCards.textContent = "PLAYER CARD";
+    
     game.playerScore = document.createElement('div');
     game.playerScore.textContent = "-";
     game.playerScore.classList.add('score');
-    game.player.append(game.playerScore);
-    game.table.append(game.player);
-    game.player.append(game.playerCards);
     
+    game.player.append(game.playerScore, game.playerCards);
+    game.table.append(game.player);
+    
+    // Dashboard
     game.dashboard = document.createElement('div');
+    game.dashboard.classList.add('dashboard');
+    
     game.status = document.createElement('div');
     game.status.classList.add('message');
     game.status.textContent = "Message for Player";
-    game.dashboard.append(game.status);
-
-    game.btnDeal = document.createElement('button');
-    game.btnDeal.textContent = "DEAL";
-    game.btnDeal.classList.add('btn');
-    game.dashboard.append(game.btnDeal);
-
-    game.btnHit = document.createElement('button');
-    game.btnHit.textContent = "HIT";
-    game.btnHit.classList.add('btn');
-    game.dashboard.append(game.btnHit);
-
-    game.btnStand = document.createElement('button');
-    game.btnStand.textContent = "STAND";
-    game.btnStand.classList.add('btn');
-    game.dashboard.append(game.btnStand);
-
+    
+    game.btnDeal = createButton("DEAL", "btn");
+    game.btnHit = createButton("HIT", "btn");
+    game.btnStand = createButton("STAND", "btn");
+    game.betButton = createButton("Bet Amount", "btn");
+    
     game.playerCash = document.createElement('div');
     game.playerCash.classList.add('message');
     game.playerCash.textContent = "Player Cash $100";
-    game.dashboard.append(game.playerCash);
-
+    
     game.inputBet = document.createElement('input');
-    game.inputBet.setAttribute('type','number');
+    game.inputBet.setAttribute('type', 'number');
     game.inputBet.style.width = "4em";
     game.inputBet.style.fontSize = "1.4em";
     game.inputBet.style.marginTop = "1em";
     game.inputBet.value = 0;
-    game.dashboard.append(game.inputBet);
-
-    game.betButton = document.createElement('button');
-    game.betButton.textContent = "Bet Amount";
-    game.betButton.classList.add('btn');
-    game.dashboard.append(game.betButton);
+    
+    game.dashboard.append(game.status, game.btnDeal, game.btnHit, game.btnStand, game.playerCash, game.inputBet, game.betButton);
     
     game.table.append(game.dashboard);
     game.main.append(game.table);
-  }
+  };
+
+  const createButton = (text, className) => {
+    const button = document.createElement('button');
+    button.textContent = text;
+    button.classList.add(className);
+    return button;
+  };
   return {
     init: init
   }
