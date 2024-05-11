@@ -200,12 +200,11 @@ const app = function () {
     return Number(total);
   }
 
-  function gameEnd() {
+  const gameEnd = () => {
     game.cardBack.style.display = "none";
     turnOff(game.btnHit);
     turnOff(game.btnStand);
-    console.log('ended');
-  }
+  };
 
   function takeCard(hand, ele, h) {
     if (game.deck.length == 0) {
