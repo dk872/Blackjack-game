@@ -206,19 +206,22 @@ const app = function () {
     turnOff(game.btnStand);
   };
 
-  function takeCard(hand, ele, h) {
-    if (game.deck.length == 0) {
+  const takeCard = (hand, element, showCardBack) => {
+    if (game.deck.length === 0) {
       buildDeck();
     }
-    let temp = game.deck.shift();
-    hand.push(temp);
-    showCard(temp, ele);
-    if (h) {
-      game.cardBack = document.createElement('div');
-      game.cardBack.classList.add('cardB');
-      ele.append(game.cardBack);
+  
+    const newCard = game.deck.shift();
+    hand.push(newCard);
+    showCard(newCard, element);
+  
+    if (showCardBack) {
+      const cardBack = document.createElement('div');
+      cardBack.classList.add('cardB');
+      game.cardBack = cardBack; 
+      element.append(cardBack);
     }
-  }
+  };
 
   function showCard(card, el) {
     if (card != undefined) {
