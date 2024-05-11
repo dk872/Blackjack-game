@@ -174,9 +174,8 @@ const app = function () {
   }
 
   const adjustScoreForAces = (totalScore, numberOfAces) => {
-    while (totalScore > 21 && numberOfAces > 0) {
+    for (let i = 0; i < numberOfAces && totalScore > 21; i++) {
       totalScore -= 10;
-      numberOfAces--;
     }
     return totalScore;
   };
