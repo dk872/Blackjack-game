@@ -62,13 +62,13 @@ const app = function () {
     game.scoreboard.textContent = `Dealer ${dealerScore} vs Player ${playerScore}`;
   };
 
-  function addClicker() {
+  const addClicker = () => {
     game.btnDeal.addEventListener('click', deal);
     game.btnStand.addEventListener('click', playerStand);
     game.btnHit.addEventListener('click', nextCard);
     game.betButton.addEventListener('click', setBet);
     game.inputBet.addEventListener('change', updateCash);
-  } 
+  };
   
   function deal() {
     game.dealerHand = [];
