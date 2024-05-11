@@ -6,9 +6,13 @@ const app = function () {
   const ranks = ["A", 10, 10, 10];
   const score = [0, 0];
 
-  function init() {
-    game.cash = 100;
-    game.bet = 0;
+  const init = () => {
+    const initialCash = 100;
+    const initialBet = 0;
+
+    game.cash = initialCash;
+    game.bet = initialBet;
+    
     buildGameBoard();
     turnOff(game.btnHit);
     turnOff(game.btnStand);
@@ -16,7 +20,7 @@ const app = function () {
     addClicker();
     scoreBoard();
     updateCash();
-  }
+  };
   
   function updateCash() {
     console.log(isNaN(game.inputBet.value));
