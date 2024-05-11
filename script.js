@@ -270,12 +270,7 @@ const app = function () {
     shuffleCards(game.deck);
   };
 
-  function shuffle(cards) {
-    cards.sort(function () {
-      return .5 - Math.random();
-    })
-    return cards;
-  }
+  const shuffleCards = (cards) => cards.sort(() => Math.random() - 0.5);
 
   function buildGameBoard() {
     game.main = document.querySelector('#game');
