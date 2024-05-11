@@ -254,21 +254,21 @@ const app = function () {
     button.style.backgroundColor = "#000";
   };
   
-  function buildDeck() {
+  const buildDeck = () => {
     game.deck = [];
-    for (let i = 0; i < suits.length; i++) {
-      for (let j = 0; j < ranks.length; j++) {
+    for (const suit of suits) {
+      for (const rank of ranks) {
         let card = {};
-        let tempValue = isNaN(ranks[j]) ? 10 : ranks[j];
-        tempValue = (ranks[j] == "A") ? 11 : tempValue;
-        card.suit = suits[i];
-        card.rank = ranks[j];
+        let tempValue = isNaN(rank) ? 10 : rank;
+        tempValue = (rank === "A") ? 11 : tempValue;
+        card.suit = suit;
+        card.rank = rank;
         card.value = tempValue;
         game.deck.push(card);
       }
     }
-    shuffle(game.deck);
-  }
+    shuffleCards(game.deck);
+  };
 
   function shuffle(cards) {
     cards.sort(function () {
