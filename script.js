@@ -223,29 +223,48 @@ const app = function () {
     }
   };
 
-  function showCard(card, el) {
-    if (card != undefined) {
-      el.style.backgroundColor = "white";
-      let div = document.createElement("div");
-      div.classList.add('card');
-      if (card.suit === "hearts" || card.suit === "diams") {
-        div.classList.add('red');
-      }
-      let span1 = document.createElement('div');
-      span1.innerHTML = card.rank + "&" + card.suit + ";";
-      span1.classList.add('tiny');
-      div.appendChild(span1);
-      let span2 = document.createElement('div');
-      span2.innerHTML = card.rank;
-      span2.classList.add('big');
-      div.appendChild(span2);
-      let span3 = document.createElement('div');
-      span3.innerHTML = "&" + card.suit + ";";
-      span3.classList.add('big');
-      div.appendChild(span3);
-      el.appendChild(div);
+  const createCardElement = (card) => {
+    const cardElement = document.createElement("div");
+    cardElement.classList.add('card');
+    
+    if (card.suit === "hearts" || card.suit === "diams") {
+      cardElement.classList.add('red');
     }
-  }
+    
+    return cardElement;
+  };
+  
+  const addRankAndSuit = (cardElement, card) => {
+    const rankAndSuit = document.createElement('div');
+    rankAndSuit.innerHTML = `${card.rank}&${card.suit};`;
+    rankAndSuit.classList.add('tiny');
+    cardElement.appendChild(rankAndSuit);
+  };
+  
+  const addRank = (cardElement, card) => {
+    const rank = document.createElement('div');
+    rank.innerHTML = card.rank;
+    rank.classList.add('big');
+    cardElement.appendChild(rank);
+  };
+  
+  const addSuitSymbol = (cardElement, card) => {
+    const suitSymbol = document.createElement('div');
+    suitSymbol.innerHTML = `&${card.suit};`;
+    suitSymbol.classList.add('big');
+    cardElement.appendChild(suitSymbol);
+  };
+  
+  const showCard = (card, containerElement) => {
+    if (card) {
+      containerElement.style.backgroundColor = "white";
+      const cardElement = createCardElement(card);
+      addRankAndSuit(cardElement, card);
+      addRank(cardElement, card);
+      addSuitSymbol(cardElement, card);
+      containerElement.appendChild(cardElement);
+    }
+  };
   
   const turnOff = (button) => {
     button.disabled = true;
