@@ -70,20 +70,26 @@ const app = function () {
     game.inputBet.addEventListener('change', updateCash);
   };
   
-  function deal() {
+  const deal = () => {
     game.dealerHand = [];
     game.playerHand = [];
+    game.dealerScore.textContent = "*";
     game.start = true;
     lockWager(true);
     turnOff(game.btnDeal);
     game.playerCards.innerHTML = "";
     game.dealerCards.innerHTML = "";
+    
+    // Dealer takes first card face down and second card face up
     takeCard(game.dealerHand, game.dealerCards, true);
     takeCard(game.dealerHand, game.dealerCards, false);
+
+    // Player takes two cards face up
     takeCard(game.playerHand, game.playerCards, false);
     takeCard(game.playerHand, game.playerCards, false);
+    
     updateCount();
-  }
+  };
 
   function nextCard() {
     takeCard(game.playerHand, game.playerCards, false);
