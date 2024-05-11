@@ -22,17 +22,19 @@ const app = function () {
     updateCash();
   };
   
-  function updateCash() {
-    console.log(isNaN(game.inputBet.value));
-    if (isNaN(game.inputBet.value) || game.inputBet.value.length < 1) {
-      game.inputBet.value = 0;
-    }
-    if (game.inputBet.value > game.cash) {
+  const updateCash = () => {
+    const inputValue = parseInt(game.inputBet.value);
+    const minBet = 0;
+  
+    if (isNaN(inputValue) || inputValue <= minBet) {
+      game.inputBet.value = minBet;
+    } else if (inputValue > game.cash) {
       game.inputBet.value = game.cash;
     }
-    game.bet = Number(game.inputBet.value);
-    game.playerCash.textContent = "Player Cash $" + (game.cash - game.bet);
-  }
+  
+    game.bet = inputValue;
+    game.playerCash.textContent = `Player Cash $${game.cash - game.bet}`;
+  };
 
   function lockWager(tog) {
     game.inputBet.disabled = tog;
