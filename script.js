@@ -91,10 +91,10 @@ const app = function () {
     updateCount();
   };
 
-  function nextCard() {
+  const nextCard = () => {
     takeCard(game.playerHand, game.playerCards, false);
     updateCount();
-  }
+  };
 
   function playerStand() {
     dealerPlay();
