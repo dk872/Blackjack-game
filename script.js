@@ -244,10 +244,10 @@ const app = function () {
     }
   }
   
-  function turnOff(btn) {
-    btn.disabled = true;
-    btn.style.backgroundColor = "#ddd";
-  }
+  const turnOff = (button) => {
+    button.disabled = true;
+    button.style.backgroundColor = "#ddd";
+  };
 
   function turnOn(btn) {
     btn.disabled = false;
