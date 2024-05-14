@@ -199,6 +199,19 @@ const app = function () {
     }
   };
 
+  const scorer = (hand) => {
+    let total = countTotal(hand);
+    let aceCount = countAces(hand);
+  
+    total = adjustScoreForAces(total, aceCount);
+  
+    if (total > 21) {
+      gameEnd();
+    }
+  
+    return total;
+  };
+
   const countTotal = (hand) => {
     let total = 0;
     for (const card of hand) {
@@ -224,19 +237,6 @@ const app = function () {
     return totalScore;
   };
 
-  const scorer = (hand) => {
-    let total = countTotal(hand);
-    let aceCount = countAces(hand);
-  
-    total = adjustScoreForAces(total, aceCount);
-  
-    if (total > 21) {
-      gameEnd();
-    }
-  
-    return total;
-  };
-
   const gameEnd = () => {
     game.cardBack.style.display = "none";
     turnOff(game.btnHit);
@@ -257,6 +257,17 @@ const app = function () {
       cardBack.classList.add('cardB');
       game.cardBack = cardBack; 
       element.append(cardBack);
+    }
+  };
+  
+  const showCard = (card, containerElement) => {
+    if (card) {
+      containerElement.style.backgroundColor = "white";
+      const cardElement = createCardElement(card);
+      addRankAndSuit(cardElement, card);
+      addRank(cardElement, card);
+      addSuitSymbol(cardElement, card);
+      containerElement.appendChild(cardElement);
     }
   };
 
@@ -290,17 +301,6 @@ const app = function () {
     suitSymbol.innerHTML = `&${card.suit};`;
     suitSymbol.classList.add('big');
     cardElement.appendChild(suitSymbol);
-  };
-  
-  const showCard = (card, containerElement) => {
-    if (card) {
-      containerElement.style.backgroundColor = "white";
-      const cardElement = createCardElement(card);
-      addRankAndSuit(cardElement, card);
-      addRank(cardElement, card);
-      addSuitSymbol(cardElement, card);
-      containerElement.appendChild(cardElement);
-    }
   };
   
   const turnOff = (button) => {
