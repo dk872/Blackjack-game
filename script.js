@@ -113,31 +113,31 @@ const app = function () {
 
   const handleBust = (playerScore, dealerScore) => {
     if (playerScore > 21) {
-        game.status.textContent = `You Busted with ${playerScore} `;
+      game.status.textContent = `You Busted with ${playerScore} `;
     }
     if (dealerScore > 21) {
-        game.status.textContent = `Dealer Busted with ${dealerScore} `;
+      game.status.textContent = `Dealer Busted with ${dealerScore} `;
     }
   };
 
   const updateStatusAndScores = (playerScore, dealerScore) => {
     if (playerScore === dealerScore) {
-        game.status.textContent = `Draw, no winners ${playerScore} `;
-        game.cash += game.bet;
+      game.status.textContent = `Draw, no winners ${playerScore} `;
+      game.cash += game.bet;
     } else if ((playerScore < 22 && playerScore > dealerScore) || dealerScore > 21) {
-        game.status.textContent += `You Win with ${playerScore} `;
-        game.cash += game.bet * 2;
-        score[1]++;
+      game.status.textContent += `You Win with ${playerScore} `;
+      game.cash += game.bet * 2;
+      score[1]++;
     } else {
-        game.status.textContent += `Dealer wins with ${dealerScore} `;
-        score[0]++;
+      game.status.textContent += `Dealer wins with ${dealerScore} `;
+      score[0]++;
     }
   };
   
   const updatePlayerCashAndControls = () => {
     if (game.cash < 1) {
-        game.cash = 0;
-        game.bet = 0;
+      game.cash = 0;
+      game.bet = 0;
     }
     scoreBoard();
     game.playerCash.textContent = `Player Cash $${game.cash}`;
@@ -153,12 +153,12 @@ const app = function () {
     game.status.textContent = `Dealer score ${dealerScore} `;
     
     if (dealerScore >= 17) {
-        game.dealerScore.textContent = dealerScore;
-        findWinner();
+      game.dealerScore.textContent = dealerScore;
+      findWinner();
     } else {
-        takeCard(game.dealerHand, game.dealerCards, false);
-        game.dealerScore.textContent = dealerScore;
-        dealerPlay();
+      takeCard(game.dealerHand, game.dealerCards, false);
+      game.dealerScore.textContent = dealerScore;
+      dealerPlay();
     }
   };
 
@@ -168,11 +168,11 @@ const app = function () {
     game.playerScore.textContent = playerScore;
 
     if (playerScore < 21) {
-        handlePlayerScoreBelow21();
+      handlePlayerScoreBelow21();
     } else if (playerScore > 21) {
-        handlePlayerScoreAbove21();
+      handlePlayerScoreAbove21();
     } else {
-        handlePlayerScoreEqual21(dealerScore);
+      handlePlayerScoreEqual21(dealerScore);
     }
 
     handleDealerBlackjack(dealerScore);
