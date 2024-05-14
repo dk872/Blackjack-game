@@ -102,38 +102,50 @@ const app = function () {
     turnOff(game.btnStand);
   };
 
-  function findWinner() {
-    let player = scorer(game.playerHand);
-    let dealer = scorer(game.dealerHand);
-    console.log(player, dealer);
-    if (player > 21) {
-      game.status.textContent = "You Busted with " + player + " ";
+  const findWinner = () => {
+    const playerScore = scorer(game.playerHand);
+    const dealerScore = scorer(game.dealerHand);
+
+    handleBust(playerScore, dealerScore);
+    updateStatusAndScores(playerScore, dealerScore);
+    updatePlayerCashAndControls();
+  };
+
+  const handleBust = (playerScore, dealerScore) => {
+    if (playerScore > 21) {
+        game.status.textContent = `You Busted with ${playerScore} `;
     }
-    if (dealer > 21) {
-      game.status.textContent = "Dealer Busted with " + dealer + " ";
+    if (dealerScore > 21) {
+        game.status.textContent = `Dealer Busted with ${dealerScore} `;
     }
-    if (player == dealer) {
-      game.status.textContent = "Draw no winners " + player + " ";
+  };
+
+  const updateStatusAndScores = (playerScore, dealerScore) => {
+    if (playerScore === dealerScore) {
+        game.status.textContent = `Draw, no winners ${playerScore} `;
+        game.cash += game.bet;
+    } else if ((playerScore < 22 && playerScore > dealerScore) || dealerScore > 21) {
+        game.status.textContent += `You Win with ${playerScore} `;
+        game.cash += game.bet * 2;
+        score[1]++;
+    } else {
+        game.status.textContent += `Dealer wins with ${dealerScore} `;
+        score[0]++;
     }
-    else if ((player < 22 && player > dealer) || dealer > 21) {
-      game.status.textContent += "You Win with " + player + " ";
-      score[1]++;
-    }
-    else {
-      game.status.textContent += "Dealer wins with " + dealer + " ";
-      score[0]++;
-    }
+  };
+  
+  const updatePlayerCashAndControls = () => {
     if (game.cash < 1) {
-      game.cash = 0;
-      game.bet = 0;
+        game.cash = 0;
+        game.bet = 0;
     }
     scoreBoard();
-    game.playerCash.textContent = "Player Cash $" + game.cash;
+    game.playerCash.textContent = `Player Cash $${game.cash}`;
     lockWager(false);
     turnOff(game.btnHit);
     turnOff(game.btnStand);
     turnOn(game.btnDeal);
-  }
+  };
 
   const dealerPlay = () => {
     const dealerScore = scorer(game.dealerHand);
