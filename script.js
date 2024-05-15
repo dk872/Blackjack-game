@@ -18,7 +18,7 @@ const app = function () {
     turnOff(game.btnStand);
     buildDeck();
     addClicker();
-    scoreBoard();
+    updateScoreBoard();
     updateCash();
   };
   
@@ -36,7 +36,7 @@ const app = function () {
     game.playerCash.textContent = `Player Cash $${game.cash - game.bet}`;
   };
 
-  const lockWager = (toggle) => {
+  const switchInputBet = (toggle) => {
     const disabledColor = '#ddd';
     const enabledColor = '#000';
     const inputBackgroundColor = toggle ? disabledColor : '#fff';
@@ -53,29 +53,29 @@ const app = function () {
     game.status.textContent = `You bet $${betAmount}`;
     game.cash -= betAmount;
     game.playerCash.textContent = `Player Cash $${game.cash}`;
-    lockWager(true);
+    switchInputBet(true);
   };
 
-  const scoreBoard = () => {
+  const updateScoreBoard = () => {
     const dealerScore = score[0];
     const playerScore = score[1];
     game.scoreboard.textContent = `Dealer ${dealerScore} vs Player ${playerScore}`;
   };
 
   const addClicker = () => {
-    game.btnDeal.addEventListener('click', deal);
-    game.btnStand.addEventListener('click', playerStand);
-    game.btnHit.addEventListener('click', nextCard);
+    game.btnDeal.addEventListener('click', startNewRound);
+    game.btnStand.addEventListener('click', goToDealersTurn);
+    game.btnHit.addEventListener('click', addCardToPlayer);
     game.betButton.addEventListener('click', setBet);
     game.inputBet.addEventListener('change', updateCash);
   };
   
-  const deal = () => {
+  const startNewRound = () => {
     game.dealerHand = [];
     game.playerHand = [];
     game.dealerScore.textContent = '*';
     game.start = true;
-    lockWager(true);
+    switchInputBet(true);
     turnOff(game.btnDeal);
     game.playerCards.innerHTML = '';
     game.dealerCards.innerHTML = '';
@@ -91,20 +91,20 @@ const app = function () {
     updateCount();
   };
 
-  const nextCard = () => {
+  const addCardToPlayer = () => {
     takeCard(game.playerHand, game.playerCards, false);
     updateCount();
   };
 
-  const playerStand = () => {
-    dealerPlay();
+  const goToDealersTurn = () => {
+    doDealersTurn();
     turnOff(game.btnHit);
     turnOff(game.btnStand);
   };
 
   const findWinner = () => {
-    const playerScore = scorer(game.playerHand);
-    const dealerScore = scorer(game.dealerHand);
+    const playerScore = countScoreOfHand(game.playerHand);
+    const dealerScore = countScoreOfHand(game.dealerHand);
 
     handleBust(playerScore, dealerScore);
     updateStatusAndScores(playerScore, dealerScore);
@@ -139,16 +139,16 @@ const app = function () {
       game.cash = 0;
       game.bet = 0;
     }
-    scoreBoard();
+    updateScoreBoard();
     game.playerCash.textContent = `Player Cash $${game.cash}`;
-    lockWager(false);
+    switchInputBet(false);
     turnOff(game.btnHit);
     turnOff(game.btnStand);
     turnOn(game.btnDeal);
   };
 
-  const dealerPlay = () => {
-    const dealerScore = scorer(game.dealerHand);
+  const doDealersTurn = () => {
+    const dealerScore = countScoreOfHand(game.dealerHand);
     game.cardBack.style.display = 'none';
     game.status.textContent = `Dealer score ${dealerScore} `;
     
@@ -158,13 +158,13 @@ const app = function () {
     } else {
       takeCard(game.dealerHand, game.dealerCards, false);
       game.dealerScore.textContent = dealerScore;
-      dealerPlay();
+      doDealersTurn();
     }
   };
 
   const updateCount = () => {
-    const playerScore = scorer(game.playerHand);
-    const dealerScore = scorer(game.dealerHand);
+    const playerScore = countScoreOfHand(game.playerHand);
+    const dealerScore = countScoreOfHand(game.dealerHand);
     game.playerScore.textContent = playerScore;
 
     if (playerScore < 21) {
@@ -188,25 +188,25 @@ const app = function () {
 
   const handlePlayerScoreEqual21 = (dealerScore) => {
     game.status.textContent = 'Dealer in play to 17 minimum';
-    dealerPlay(dealerScore);
+    doDealersTurn(dealerScore);
   };
 
   const handleDealerBlackjack = (dealerScore) => {
     if (dealerScore === 21 && game.dealerHand.length === 2) {
       game.status.textContent = 'Dealer got BlackJack';
-      gameEnd();
+      finishGame();
       findWinner();
     }
   };
 
-  const scorer = (hand) => {
+  const countScoreOfHand = (hand) => {
     let total = countTotal(hand);
     let aceCount = countAces(hand);
   
     total = adjustScoreForAces(total, aceCount);
   
     if (total > 21) {
-      gameEnd();
+      finishGame();
     }
   
     return total;
@@ -237,7 +237,7 @@ const app = function () {
     return totalScore;
   };
 
-  const gameEnd = () => {
+  const finishGame = () => {
     game.cardBack.style.display = 'none';
     turnOff(game.btnHit);
     turnOff(game.btnStand);
