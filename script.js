@@ -2,8 +2,8 @@
 
 const app = function () {
   const game = {};
-  const suits = ["spades", "hearts", "clubs", "diams"];
-  const ranks = ["A", 10, 10, 10];
+  const suits = ['spades', 'hearts', 'clubs', 'diams'];
+  const ranks = ['A', 10, 10, 10];
   const score = [0, 0];
 
   const init = () => {
@@ -37,9 +37,9 @@ const app = function () {
   };
 
   const lockWager = (toggle) => {
-    const disabledColor = "#ddd";
-    const enabledColor = "#000";
-    const inputBackgroundColor = toggle ? disabledColor : "#fff";
+    const disabledColor = '#ddd';
+    const enabledColor = '#000';
+    const inputBackgroundColor = toggle ? disabledColor : '#fff';
     const buttonBackgroundColor = toggle ? disabledColor : enabledColor;
   
     game.inputBet.disabled = toggle;
@@ -73,12 +73,12 @@ const app = function () {
   const deal = () => {
     game.dealerHand = [];
     game.playerHand = [];
-    game.dealerScore.textContent = "*";
+    game.dealerScore.textContent = '*';
     game.start = true;
     lockWager(true);
     turnOff(game.btnDeal);
-    game.playerCards.innerHTML = "";
-    game.dealerCards.innerHTML = "";
+    game.playerCards.innerHTML = '';
+    game.dealerCards.innerHTML = '';
     
     // Dealer takes first card face down and second card face up
     takeCard(game.dealerHand, game.dealerCards, true);
@@ -113,10 +113,10 @@ const app = function () {
 
   const handleBust = (playerScore, dealerScore) => {
     if (playerScore > 21) {
-      game.status.textContent = `You Busted with ${playerScore} `;
+      game.status.textContent = `You busted with ${playerScore} `;
     }
     if (dealerScore > 21) {
-      game.status.textContent = `Dealer Busted with ${dealerScore} `;
+      game.status.textContent = `Dealer busted with ${dealerScore} `;
     }
   };
 
@@ -125,7 +125,7 @@ const app = function () {
       game.status.textContent = `Draw, no winners ${playerScore} `;
       game.cash += game.bet;
     } else if ((playerScore < 22 && playerScore > dealerScore) || dealerScore > 21) {
-      game.status.textContent += `You Win with ${playerScore} `;
+      game.status.textContent += `You win with ${playerScore} `;
       game.cash += game.bet * 2;
       score[1]++;
     } else {
@@ -149,7 +149,7 @@ const app = function () {
 
   const dealerPlay = () => {
     const dealerScore = scorer(game.dealerHand);
-    game.cardBack.style.display = "none";
+    game.cardBack.style.display = 'none';
     game.status.textContent = `Dealer score ${dealerScore} `;
     
     if (dealerScore >= 17) {
@@ -181,19 +181,19 @@ const app = function () {
   const handlePlayerScoreBelow21 = () => {
     turnOn(game.btnHit);
     turnOn(game.btnStand);
-    game.status.textContent = "Stand or take another card";
+    game.status.textContent = 'Stand or take another card';
   };
 
   const handlePlayerScoreAbove21 = () => findWinner();
 
   const handlePlayerScoreEqual21 = (dealerScore) => {
-    game.status.textContent = "Dealer in PLay to 17 minimum";
+    game.status.textContent = 'Dealer in play to 17 minimum';
     dealerPlay(dealerScore);
   };
 
   const handleDealerBlackjack = (dealerScore) => {
     if (dealerScore === 21 && game.dealerHand.length === 2) {
-      game.status.textContent = "Dealer Got BlackJack";
+      game.status.textContent = 'Dealer got BlackJack';
       gameEnd();
       findWinner();
     }
@@ -223,7 +223,7 @@ const app = function () {
   const countAces = (hand) => {
     let aceCount = 0;
     for (const card of hand) {
-      if (card.rank === "A") {
+      if (card.rank === 'A') {
         aceCount++;
       }
     }
@@ -238,7 +238,7 @@ const app = function () {
   };
 
   const gameEnd = () => {
-    game.cardBack.style.display = "none";
+    game.cardBack.style.display = 'none';
     turnOff(game.btnHit);
     turnOff(game.btnStand);
   };
@@ -262,7 +262,7 @@ const app = function () {
   
   const showCard = (card, containerElement) => {
     if (card) {
-      containerElement.style.backgroundColor = "white";
+      containerElement.style.backgroundColor = 'white';
       const cardElement = createCardElement(card);
       addRankAndSuit(cardElement, card);
       addRank(cardElement, card);
@@ -272,10 +272,10 @@ const app = function () {
   };
 
   const createCardElement = (card) => {
-    const cardElement = document.createElement("div");
+    const cardElement = document.createElement('div');
     cardElement.classList.add('card');
     
-    if (card.suit === "hearts" || card.suit === "diams") {
+    if (card.suit === 'hearts' || card.suit === 'diams') {
       cardElement.classList.add('red');
     }
     
@@ -305,12 +305,12 @@ const app = function () {
   
   const turnOff = (button) => {
     button.disabled = true;
-    button.style.backgroundColor = "#ddd";
+    button.style.backgroundColor = '#ddd';
   };
 
   const turnOn = (button) => {
     button.disabled = false;
-    button.style.backgroundColor = "#000";
+    button.style.backgroundColor = '#000';
   };
   
   const buildDeck = () => {
@@ -319,7 +319,7 @@ const app = function () {
       for (const rank of ranks) {
         let card = {};
         let tempValue = isNaN(rank) ? 10 : rank;
-        tempValue = (rank === "A") ? 11 : tempValue;
+        tempValue = (rank === 'A') ? 11 : tempValue;
         card.suit = suit;
         card.rank = rank;
         card.value = tempValue;
@@ -336,7 +336,7 @@ const app = function () {
     
     // Scoreboard
     game.scoreboard = document.createElement('div');
-    game.scoreboard.textContent = "Dealer 0 vs Player 0";
+    game.scoreboard.textContent = 'Dealer 0 vs Player 0';
     game.scoreboard.classList.add('score');
     game.main.append(game.scoreboard);
     
@@ -349,10 +349,10 @@ const app = function () {
     game.dealer.classList.add('dealer');
     
     game.dealerCards = document.createElement('div');
-    game.dealerCards.textContent = "DEALER CARD";
+    game.dealerCards.textContent = 'DEALER CARD';
     
     game.dealerScore = document.createElement('div');
-    game.dealerScore.textContent = "-";
+    game.dealerScore.textContent = '-';
     game.dealerScore.classList.add('score');
     
     game.dealer.append(game.dealerScore, game.dealerCards);
@@ -363,10 +363,10 @@ const app = function () {
     game.player.classList.add('player');
     
     game.playerCards = document.createElement('div');
-    game.playerCards.textContent = "PLAYER CARD";
+    game.playerCards.textContent = 'PLAYER CARD';
     
     game.playerScore = document.createElement('div');
-    game.playerScore.textContent = "-";
+    game.playerScore.textContent = '-';
     game.playerScore.classList.add('score');
     
     game.player.append(game.playerScore, game.playerCards);
@@ -378,25 +378,33 @@ const app = function () {
     
     game.status = document.createElement('div');
     game.status.classList.add('message');
-    game.status.textContent = "Message for Player";
+    game.status.textContent = 'Message for Player';
     
-    game.btnDeal = createButton("DEAL", "btn");
-    game.btnHit = createButton("HIT", "btn");
-    game.btnStand = createButton("STAND", "btn");
-    game.betButton = createButton("Bet Amount", "btn");
+    game.btnDeal = createButton('DEAL', 'btn');
+    game.btnHit = createButton('HIT', 'btn');
+    game.btnStand = createButton('STAND', 'btn');
+    game.betButton = createButton('Bet Amount', 'btn');
     
     game.playerCash = document.createElement('div');
     game.playerCash.classList.add('message');
-    game.playerCash.textContent = "Player Cash $100";
+    game.playerCash.textContent = 'Player Cash $100';
     
     game.inputBet = document.createElement('input');
     game.inputBet.setAttribute('type', 'number');
-    game.inputBet.style.width = "4em";
-    game.inputBet.style.fontSize = "1.4em";
-    game.inputBet.style.marginTop = "1em";
+    game.inputBet.style.width = '4em';
+    game.inputBet.style.fontSize = '1.4em';
+    game.inputBet.style.marginTop = '1em';
     game.inputBet.value = 0;
     
-    game.dashboard.append(game.status, game.btnDeal, game.btnHit, game.btnStand, game.playerCash, game.inputBet, game.betButton);
+    game.dashboard.append(
+      game.status,
+      game.btnDeal,
+      game.btnHit,
+      game.btnStand,
+      game.playerCash,
+      game.inputBet,
+      game.betButton
+    );
     
     game.table.append(game.dashboard);
     game.main.append(game.table);
@@ -408,6 +416,7 @@ const app = function () {
     button.classList.add(className);
     return button;
   };
+  
   return {
     init: init
   }
