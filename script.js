@@ -123,7 +123,6 @@ const app = function () {
   const updateStatusAndScores = (playerScore, dealerScore) => {
     if (playerScore === dealerScore) {
       game.status.textContent = `Draw, no winners ${playerScore} `;
-      game.cash += game.bet;
     } else if ((playerScore < 22 && playerScore > dealerScore) || dealerScore > 21) {
       game.status.textContent += `You win with ${playerScore} `;
       game.cash += game.bet * 2;
@@ -132,6 +131,7 @@ const app = function () {
       game.status.textContent += `Dealer wins with ${dealerScore} `;
       score[0]++;
     }
+    game.dealerScore.textContent = dealerScore;
   };
   
   const updatePlayerCashAndControls = () => {
