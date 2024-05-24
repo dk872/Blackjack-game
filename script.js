@@ -333,7 +333,7 @@ const app = function () {
   const shuffleCards = (cards) => cards.sort(() => Math.random() - 0.5);
 
   const buildGameBoard = () => {
-    game.main = document.querySelector('#game');
+    game.main = document.getElementById('game');
     
     // Scoreboard
     game.scoreboard = document.createElement('div');
